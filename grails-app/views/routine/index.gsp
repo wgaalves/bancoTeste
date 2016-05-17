@@ -69,6 +69,7 @@
 <script >
     $(document).ready(function() {
         var url = "${createLink(controller: 'routine',action: 'delete')}";
+        console.log( $(this).parents('tr').first())
         $('.delete').on('click', function () {
             console.log("click");
             var id = $(this).attr('id');
@@ -79,6 +80,7 @@
                 type: 'POST',
                 success: function () {
                     $(this).parents('tr').first().remove();
+
                 }
             });
         });

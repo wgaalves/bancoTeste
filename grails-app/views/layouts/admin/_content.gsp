@@ -3,8 +3,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            Banco de Testes
+            <small>Dashboard</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="${createLink(uri: '/')}"><i class="fa fa-home"></i> Home</a></li>

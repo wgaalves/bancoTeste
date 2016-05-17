@@ -107,7 +107,7 @@
                             <r:img uri="/img/avatarpadrao.png" class="img-circle" alt="User Image"/>
                             <p>
                                 <sec:username/> - ADM
-                                <small>Member since Nov. 2016</small>
+                                <small>Member since Mai. 2016</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -135,7 +135,7 @@
                 </li>
                 <!-- Control Sidebar Toggle Button -->
                 <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    <a href="${createLink(controller: 'logout')}" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>

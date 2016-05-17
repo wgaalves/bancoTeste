@@ -31,10 +31,10 @@ environments {
     }
     production {
         dataSource {
-            username = "wetransfer"
-            password = "wetransfer"
+            username = "qatest"
+            password = "1m4xqatest"
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/weTransfer_prod"
+            url = "jdbc:mysql://localhost:3306/qatest"
             properties {
                 minEvictableIdleTimeMillis = 1800000
                 timeBetweenEvictionRunsMillis = 1800000

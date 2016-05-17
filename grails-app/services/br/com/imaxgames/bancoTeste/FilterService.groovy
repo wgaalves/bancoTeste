@@ -16,6 +16,7 @@ class FilterService {
 
 
 
+
         for (int i = 0; i < 3; i++) {
 
             if (isNotNullList[i] != null) {
@@ -37,16 +38,71 @@ class FilterService {
 
 
         def result = Routine.findAllWhere(filterMap)
+        if(filterMap.size() == 0){
+            result = Routine.findAll()
+        }
 
         if(project != null) {
             result.each {
                if(project.routines.contains(it)){
-                   finalmap += ['routine':it.id,'description':it.description]
+                   finalmap += ['routine':it.id,
+                                'description':it.description,
+                                'project':project.name,
+                                'projecttag':it.projects[0].tag,
+                                'phase':it.phase.id,
+                                'type':it.type.id,
+                                'scope':it.scope.id,
+                                'version':it.ver]
                }
+            }
+        }else{
+            result.each {
+                    finalmap += ['routine':it.id,
+                                 'description':it.description,
+                                 'project':it.projects[0].name,
+                                 'projecttag':it.projects[0].tag,
+                                 'phase':it.phase.id,
+                                 'type':it.type.id,
+                                 'scope':it.scope.id,
+                                 'version':it.ver]
+
             }
         }
 
-        return finalmap
+        return finalmap.sort{it.project}
+
+    }
+
+    def searchByString(params){
+
+        def allRoutines = Routine.findAll();
+        def routineList = []
+        if (params.searchString == '' || params.searchString == null){
+            allRoutines.each {
+                    routineList += ['routine'    : it.id,
+                                    'description': it.description,
+                                    'project'    : it.projects[0].name,
+                                    'projecttag' : it.projects[0].tag,
+                                    'phase'      : it.phase.id,
+                                    'type'       : it.type.id,
+                                    'scope'      : it.scope.id,
+                                    'version'    : it.ver]
+            }
+        }else {
+            allRoutines.each {
+                if (it.description.contains(params.searchString)) {
+                    routineList += ['routine'    : it.id,
+                                    'description': it.description,
+                                    'project'    : it.projects[0].name,
+                                    'projecttag' : it.projects[0].tag,
+                                    'phase'      : it.phase.id,
+                                    'type'       : it.type.id,
+                                    'scope'      : it.scope.id,
+                                    'version'    : it.ver]
+                }
+            }
+        }
+        return routineList
 
     }
 }

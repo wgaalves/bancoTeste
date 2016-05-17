@@ -120,14 +120,15 @@ log4j.main = {
 
 
 
+grails.plugin.springsecurity.logout.postOnly = false
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'br.com.imaxgames.bancoTeste.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'br.com.imaxgames.bancoTeste.UserRole'
 grails.plugin.springsecurity.authority.className = 'br.com.imaxgames.bancoTeste.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/*':               ['IS_AUTHENTICATED_FULLY'],
-	'/index':           ['permitAll'],
-	'/index.gsp':       ['permitAll'],
+	'/index':           ['IS_AUTHENTICATED_FULLY'],
+	'/index.gsp':       ['IS_AUTHENTICATED_FULLY'],
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],

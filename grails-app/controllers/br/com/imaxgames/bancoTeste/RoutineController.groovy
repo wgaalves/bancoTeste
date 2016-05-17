@@ -1,12 +1,13 @@
 package br.com.imaxgames.bancoTeste
 
+import grails.converters.deep.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 class RoutineController {
 
     def routineService
 
-    static allowedMethods = [index:'GET',create:'GET',view: 'GET',edit: 'GET',save: 'POST',delete: 'POST',update: 'POST']
+    static allowedMethods = [index:'GET',create:'GET',view: 'GET',edit: 'GET',save: 'POST',update: 'POST']
 
     @Secured(['ROLE_ADMIN'])
     def index () {
@@ -26,9 +27,10 @@ class RoutineController {
 
     @Secured(['ROLE_ADMIN'])
     def delete(Long id){
-        def response = routineService.delete(params)
+        def deleteResponse = routineService.delete(params)
 
-        return response
+        render delete:deleteResponse
+
     }
 
     @Secured(['ROLE_ADMIN'])

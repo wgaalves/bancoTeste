@@ -19,6 +19,19 @@ class FilterController {
 
     }
 
+    @Secured(['ROLE_ADMIN'])
+    def description() {}
+
+
+    @Secured(['ROLE_ADMIN'])
+    def getDescriptionResults(){
+
+        def response = filterService.searchByString(params)
+
+        render response as JSON
+
+    }
+
 
 
 }

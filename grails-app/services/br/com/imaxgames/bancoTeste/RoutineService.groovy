@@ -12,8 +12,8 @@ class RoutineService {
             routine.type  = Type.get(params.type)
             routine.scope = Scope.get(params.scope)
             routine.phase = Phase.get(params.phase)
+            routine.description = params.description.replace('\\n', '<br/>').replace('**','&#9679;')
            // routine.projects.add(Project.get(params.project))
-
 
         def aux = 0;
         if (!Project.get(params.project).routines.empty){
