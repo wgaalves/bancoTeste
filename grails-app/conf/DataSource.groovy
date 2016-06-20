@@ -31,8 +31,8 @@ environments {
     }
     production {
         dataSource {
-            username = "qatest"
-            password = "1m4xqatest"
+            username = "qa"
+            password = "qa"
             dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/qatest"
             properties {
